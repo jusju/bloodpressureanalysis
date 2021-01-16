@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Blood Pressure Records</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<br>
+	<div class="container">
+
+		<div class="p-4 my-3 bg-dark text-white ">
+			<h3 th:inline="text">Hi [[${#httpServletRequest.remoteUser}]]!</h3>
+		</div>
+
+		<div>
+			<a href="/add" class="btn btn-success">Add Record</a>
+		</div>
+		<br>
+
+		<table class="mb-4 table table-striped">
+			<tbody>
+
+				<tr>
+					<th>Date</th>
+					<th>Systolic</th>
+					<th>Diastolic</th>
+					<th>Pulse</th>
+					<th></th>
+					<th></th>
+				</tr>
+
+				<tr th:each="bprecords: ${bprecords}">
+
+					<td th:text="${#temporals.format(bprecords.date, 'dd.MM.yyyy')}"></td>
+					<td th:text="${bprecords.systolic}"></td>
+					<td th:text="${bprecords.diastolic}"></td>
+					<td th:text="${bprecords.pulse}"></td>
+					<td>
+						<a th:href="@{/delete/{id}(id=${bprecords.id})}" class="btn btn-danger">Delete</a>
+					</td>
+					<td>
+						<a th:href="@{/modify/{id}(id=${bprecords.id})}" class="btn btn-warning">Modify</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" class="btn btn-danger" />
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>SignUp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+
+<body class="text-center">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="card card-signin my-5">
+				<div class="card-body shadow">
+
+					<h5 class="card-title text-center">Sign up</h5>
+					<form class="" th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
+
+
+						<input type="text" th:field="*{username}" class="form-control" placeholder="Choose a username" required autofocus />
+						<div class="alert alert-danger" th:each="error: ${#fields.errors('username')}" th:text="${error}">Validation
+							error</div>
+						<label for="inputUsername"> </label>
+
+
+
+						<input type="password" th:field="*{password}" class="form-control" placeholder="Create password" />
+						<p th:each="error : ${#fields.errors('password')}" th:text="${error}">Validation error</p>
+						<label for="inputPassword"> </label>
+
+
+
+						<input type="password" th:field="*{passwordCheck}" class="form-control" placeholder="Re-enter password" />
+						<p class="alert alert-danger" th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Passwords
+							don't match</p>
+						<label for="reInputPassword"> </label>
+
+
+						<div>
+							<button class="btn btn-primary btn-block text-uppercase" type="submit">Save</button>
+							<hr class="my-4">
+						</div>
+
+					</form>
+					<p>
+						Already have an account?
+						<a th:href="@{/login}">Login here</a>
+
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
