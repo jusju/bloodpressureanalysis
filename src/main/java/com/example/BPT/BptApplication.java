@@ -30,9 +30,9 @@ public class BptApplication {
 	CommandLineRunner runner() {
 		return args -> {
 
-			repository.save(new HealthRecords("Masih", 98, 65, 65, LocalDate.of(2021, 01, 01)));
-			repository.save(new HealthRecords("Jack", 115, 75, 75, LocalDate.of(2020, 12, 28)));
-			repository.save(new HealthRecords("Joe", 95, 150, 70, LocalDate.of(2020, 12, 20)));
+			repository.save(new HealthRecords("Masih", 80, 65, 65, LocalDate.of(2021, 01, 01)));
+			repository.save(new HealthRecords("Jack", 90, 75, 75, LocalDate.of(2020, 12, 28)));
+			repository.save(new HealthRecords("Joe", 115, 90, 80, LocalDate.of(2020, 12, 20)));
 
 			urepository.save(new User("user", "$2a$10$BNWuNqBl/XdI7kwirIZp4u8TsJ6kD84se/36MDT0nRuML36Hc1cLq", "USER"));
 
