@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Spring Security Example</title>
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body class="text-center">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="card card-signin my-5">
+				<div class="card-body">
+
+					<div class="alert alert-danger" th:if="${param.error}">Invalid username and password.</div>
+					<div class="alert alert-warning" th:if="${param.logout}">You have been logged out.</div>
+					<div class="alert alert-success" th:if="${param.signup}">Account created successfully!</div>
+
+					<h5 class="card-title text-center">Sign In</h5>
+					<form class="form-signin" th:action="@{/login}" method="post">
+						<div>
+							<input type="text" name="username" class="form-control" placeholder="Username" required autofocus />
+							<label for="inputUsername"> </label>
+						</div>
+						<div>
+							<input type="password" name="password" class="form-control" placeholder="Password" />
+							<label for="inputPassword"> </label>
+						</div>
+						<div>
+							<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+							<hr class="my-4">
+						</div>
+
+						<div class="alert alert-warning" style="margin: 20px">
+
+							<p>
+								Don't have an account yet?
+								<a th:href="@{/registration}">Create one here</a>
+
+							</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
