@@ -34,9 +34,9 @@ public class BptApplication {
 			repository.save(new HealthRecords("Jack", 90, 75, 75, LocalDate.of(2020, 12, 28)));
 			repository.save(new HealthRecords("Joe", 115, 90, 80, LocalDate.of(2020, 12, 20)));
 
-			urepository.save(new User("user", "$2a$10$BNWuNqBl/XdI7kwirIZp4u8TsJ6kD84se/36MDT0nRuML36Hc1cLq", "USER"));
+			//urepository.save(new User("user", "$2a$10$BNWuNqBl/XdI7kwirIZp4u8TsJ6kD84se/36MDT0nRuML36Hc1cLq", "USER"));
 
-			urepository.save(new User("admin", "$2a$10$vGdLiDZ2m2k2TrgX/1WnL.RYOeLGy094/4q9VKC8S6qdExc5Cy1ve", "ADMIN"));
+			//urepository.save(new User("admin", "$2a$10$vGdLiDZ2m2k2TrgX/1WnL.RYOeLGy094/4q9VKC8S6qdExc5Cy1ve", "ADMIN"));
 
 		};
 	}
